@@ -18,7 +18,7 @@ public class FilmQueryApp {
 	}
 
 	private void test() {
-		Film film = db.findFilmById(1);
+		Film film = db.findFilmById(2);
 		System.out.println(film);
 	}
 

@@ -51,7 +51,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		startDBConnection();
 
 		Film film = null;
-		String sql = "SELECT * FROM film WHERE id=?";
+		String sql = "SELECT * "
+				+ " FROM film JOIN language ON film.language_id = language.id "
+				+ " WHERE film.id =?;";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
@@ -69,6 +71,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setReplacementCost(filmResult.getDouble("replacement_cost"));
 				film.setRating(filmResult.getString("rating"));
 				film.setSpecialFeatures(filmResult.getString("special_features"));
+				film.setLanguage(filmResult.getString("name"));
 				// setting actor list in the film
 				film.setActorList(findActorsByFilmId(filmId));
 			}
@@ -124,6 +127,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		closeDBConnection();
 		return actorList;
+	}
+
+	@Override
+	public List<Film> findFilmBySearchKeyword(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

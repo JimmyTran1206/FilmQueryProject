@@ -15,23 +15,19 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actorList;
+	private String language;
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Film details: \n");
-		sb.append("title: "+ title + "\n");
-		sb.append("id: "+ id + "\n");
-		sb.append("description: "+ description + "\n");
-		sb.append("release_year: "+ releaseYear + "\n");
-		sb.append("language_id: "+ languageId + "\n");
-		sb.append("rental_duration: "+ rentalDuration + "\n");
-		sb.append("rental_rate: "+ rentalRate + "\n");
-		sb.append("length: "+ length + "\n");
-		sb.append("replacement_cost: "+ replacementCost + "\n");
-		sb.append("rating: "+ rating + "\n");
-		sb.append("special_features: "+ specialFeatures + "\n");
-		sb.append("\nActor List: \n");
+		sb.append("Film id #"+id+  "\n");
+		sb.append("Title: "+ title + "\n");
+		sb.append("Release year: "+ releaseYear + "\n");
+		sb.append("Rating: "+ rating + "\n");
+		sb.append("Language: "+ language + "\n");
+		sb.append("Description: "+ description + "\n");
+		
+		sb.append("\nCasting Actors: \n");
 		int count=1;
 		for (Actor actor:actorList) {
 			sb.append(count+". ");
@@ -46,6 +42,14 @@ public class Film {
 //				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
 //				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
 //				+ ", specialFeatures=" + specialFeatures + ", actorList=" + actorList + "]";
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
