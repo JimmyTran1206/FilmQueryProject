@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.app;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
@@ -18,8 +19,14 @@ public class FilmQueryApp {
 	}
 
 	private void test() {
-		Film film = db.findFilmById(2);
-		System.out.println(film);
+//		Film film = db.findFilmById(2);
+//		System.out.println(film);
+		List<Film> filmList = db.findFilmBySearchKeyword("wha");
+		System.out.println("Search result: "+ filmList.size());
+		for (Film film: filmList) {
+			System.out.println(film);
+		}
+		
 	}
 
 	private void launch() {
@@ -30,12 +37,14 @@ public class FilmQueryApp {
 
 		input.close();
 	}
-	 private void displayMenu() {
-		 System.out.println("Choose an option:");
-		 System.out.println("1. Look up a film by its id.");
-		 System.out.println("2. Look up a film by a search keyword.");
-		 System.out.println("3. Exit the application");
-	 }
+
+	private void displayMenu() {
+		System.out.println("Choose an option:");
+		System.out.println("1. Look up a film by its id.");
+		System.out.println("2. Look up a film by a search keyword.");
+		System.out.println("3. Exit the application");
+	}
+
 	private void startUserInterface(Scanner input) {
 
 	}

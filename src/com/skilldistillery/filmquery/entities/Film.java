@@ -27,7 +27,7 @@ public class Film {
 		sb.append("Language: "+ language + "\n");
 		sb.append("Description: "+ description + "\n");
 		
-		sb.append("\nCasting Actors: \n");
+		sb.append("--Casting Actors:-- \n");
 		int count=1;
 		for (Actor actor:actorList) {
 			sb.append(count+". ");
@@ -37,6 +37,7 @@ public class Film {
 			sb.append(". \n");
 			count++;
 		}
+		sb.append("-------------------------------\n");
 		return sb.toString();
 //		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
 //				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
