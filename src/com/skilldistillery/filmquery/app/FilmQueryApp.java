@@ -107,7 +107,7 @@ public class FilmQueryApp {
 					System.out.println(film);
 				}
 			}
-			System.out.println("Press any key to continue searching, or press 'Q' to return to main menu");
+			System.out.println("Press any key to continue searching, or press 'Q' to return to main menu.");
 			String userChoice=input.nextLine();
 			if(userChoice.toUpperCase().equals("Q")) {
 				return;
