@@ -100,12 +100,14 @@ public class FilmQueryApp {
 			List<Film> filmList = db.findFilmBySearchKeyword(userSearchKeyword);
 			if(filmList.isEmpty()) {
 				System.out.println("There is no film matched your search.");
+				System.out.println();
 			}else {
-				System.out.println("There are " + filmList.size()+ " films matched your search.");
 				System.out.println();
 				for (Film film : filmList) {
 					System.out.println(film);
 				}
+				System.out.println("There are " + filmList.size()+ " films matched your search.");
+				System.out.println();
 			}
 			System.out.println("Press any key to continue searching, or press 'Q' to return to main menu.");
 			String userChoice=input.nextLine();
