@@ -8,12 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class DatabaseAccessorObject implements DatabaseAccessor {
-	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
+	private static final String URL = "jdbc:mysql://localhost:3306/sdvid";
 	private static final String USER = "student";
 	private static final String PWD = "student";
 	Connection conn;
@@ -22,7 +21,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
+			System.out.println("Unable to load driver");
 			System.out.println(e);
+			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 
@@ -33,6 +35,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			System.out.println("Cannot make connection to DB");
 			System.out.println(e);
 			e.printStackTrace();
+			System.exit(1);
 
 		}
 	}
@@ -44,6 +47,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			System.out.println("Cannot close DB connection");
 			System.out.println(e);
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 
